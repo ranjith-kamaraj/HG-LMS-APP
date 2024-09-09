@@ -8,7 +8,6 @@ Resources:
       InstanceType: t2.micro
       ImageId: ami-0e53db6fd757e38c7
       UserData:
-        UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
           # Update and install necessary packages
@@ -20,7 +19,7 @@ Resources:
           yum install -y nodejs
 
           # Clone your project repository
-          git clone https://github.com/ranjith-kamaraj/HG-LMS-APP.git /home/ec2-user/HG-LMS-APP
+          git clone https://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@github.com/ranjith-kamaraj/HG-LMS-APP.git /home/ec2-user/HG-LMS-APP
 
           # Navigate to your project directory
           cd /home/ec2-user/HG-LMS-APP/app-server
