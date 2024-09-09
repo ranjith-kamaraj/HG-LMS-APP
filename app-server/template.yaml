@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: A basic CloudFormation template
 
 Resources:
-  dev-lms-app-server:
+  devlmsappserver:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
