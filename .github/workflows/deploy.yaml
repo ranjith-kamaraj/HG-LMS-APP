@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Deploy CloudFormation Stack
 
 on:
   push:
@@ -18,13 +18,11 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          aws-region: ap-south-1 # Adjust region if needed
 
-      - name: Deploy CloudFormation Stack
+      - name: Deploy CloudFormation stack
         run: |
           aws cloudformation deploy \
-            --template-file app-server/template.yaml \
-            --stack-name my-node-app-stack \
-            --capabilities CAPABILITY_IAM \
-            --region ap-south-1 \
-            --parameter-overrides ImageId=ami-0c55b159cbfafe1f0 KeyName=your-key-pair-name
+            --template-file app-server/template.yml \
+            --stack-name dev-lms-app-server \
+            --capabilities CAPABILITY_NAMED_IAM
