@@ -8,7 +8,29 @@ Resources:
       InstanceType: t2.micro
       ImageId: ami-0e53db6fd757e38c7
       UserData:
+        UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
-          echo "PORT=5000" > /home/ec2-user/.env
-          chown ec2-user:ec2-user /home/ec2-user/.env
+          # Update and install necessary packages
+          yum update -y
+          yum install -y git
+
+          # Install Node.js (use a more up-to-date method if needed)
+          curl -fsSL https://rpm.nodesource.com/setup_16.x | sudo bash -
+          yum install -y nodejs
+
+          # Clone your project repository
+          git clone https://github.com/ranjith-kamaraj/HG-LMS-APP.git /home/ec2-user/HG-LMS-APP
+
+          # Navigate to your project directory
+          cd /home/ec2-user/HG-LMS-APP/app-server
+
+          # Install project dependencies
+          npm install
+
+          # Set environment variable
+          echo "PORT=5000" > /home/ec2-user/HG-LMS-APP/app-server/.env
+          chown ec2-user:ec2-user /home/ec2-user/HG-LMS-APP/app-server/.env
+
+          # Start your application (adjust the command as needed)
+          npm start
