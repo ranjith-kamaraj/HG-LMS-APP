@@ -23,6 +23,6 @@ jobs:
       - name: Deploy CloudFormation stack
         run: |
           aws cloudformation deploy \
-            --template-file app-server/template.yml \
+            --template-file app-server/template.yaml \
             --stack-name dev-lms-app-server \
             --capabilities CAPABILITY_NAMED_IAM
