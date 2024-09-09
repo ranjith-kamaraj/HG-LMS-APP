@@ -1,11 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-
-const { Client } = require("pg");
+import express, { Request, Response } from "express";
+import cors from "cors";
 
 const app = express();
-require("dotenv").config();
 
+require("dotenv").config();
 const { getLogger } = require("./utils/logger");
 const logger = getLogger();
 
@@ -20,6 +18,12 @@ process.on("unhandledRejection", (err) => logger.error(err));
 global.lms = {
   logger,
 };
+
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).send({
+    message: "Hello World!",
+  });
+});
 
 app.listen(process.env.PORT, () => {
   console.info(`Server started on port: ${process.env.PORT}`);
