@@ -26,3 +26,6 @@ jobs:
             --template-file app-server/template.yaml \
             --stack-name dev-lms-app-server \
             --capabilities CAPABILITY_NAMED_IAM
+            
+      - name: Set environment variables
+        run: echo "PORT=5000" >> $GITHUB_ENV  # Specify your port number here
