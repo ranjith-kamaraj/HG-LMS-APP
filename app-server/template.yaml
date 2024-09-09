@@ -7,3 +7,8 @@ Resources:
     Properties:
       InstanceType: t2.micro
       ImageId: ami-0e53db6fd757e38c7
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          echo "PORT=5000" > /home/ec2-user/.env
+          chown ec2-user:ec2-user /home/ec2-user/.env
