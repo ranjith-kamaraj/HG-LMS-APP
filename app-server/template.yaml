@@ -1,27 +1,10 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Parameters:
-  ImageId:
-    Type: String
-    Description: "The AMI ID for the EC2 instance"
-  KeyName:
-    Type: String
-    Description: "The EC2 key pair name to enable SSH access"
+Description: A basic CloudFormation template
 
 Resources:
-  MyInstance:
-    Type: "AWS::EC2::Instance"
+  dev-lms-app-server:
+    Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
-      ImageId: !Ref ImageId
-      KeyName: !Ref KeyName
-      Tags:
-        - Key: Name
-          Value: MyNodeAppInstance
-      UserData:
-        Fn::Base64: |
-          #!/bin/bash
-          cd /home/ec2-user
-          git clone https://github.com/yourusername/your-repo.git
-          cd your-repo
-          npm install
-          npm start
+      ImageId: ami-0e53db6fd757e38c7
+      KeyName: testing
