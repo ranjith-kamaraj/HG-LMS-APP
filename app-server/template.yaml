@@ -24,6 +24,8 @@ Resources:
           # Navigate to your project directory
           cd /home/ec2-user/HG-LMS-APP/app-server
 
+          npm install -g ts-node nodemon
+
           # Install project dependencies
           npm install
 
