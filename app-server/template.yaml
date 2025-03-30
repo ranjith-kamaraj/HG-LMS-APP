@@ -6,7 +6,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
-      ImageId: ami-0e53db6fd757e38c7
+      ImageId: ami-076c6dbba59aa92e6
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
