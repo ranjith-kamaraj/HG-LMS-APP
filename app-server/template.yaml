@@ -2,11 +2,30 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: A basic CloudFormation templates
 
 Resources:
+  DevSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and HTTP access
+      VpcId: vpc-0414f0d0af6f69f06 # Replace with your VPC ID
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0 # Allows SSH from anywhere (modify for security)
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0 # Allows HTTP from anywhere
+
   devlmsappserver:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
       ImageId: ami-076c6dbba59aa92e6
+      SecurityGroupIds:
+        - !Ref DevSecurityGroup # Attach the security group
+      KeyName: dev-key # Replace with your key pair name
+      SubnetId: subnet-07ada5956e9a68f46 # Replace with your subnet ID
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
