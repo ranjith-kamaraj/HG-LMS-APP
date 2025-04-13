@@ -21,7 +21,7 @@ global.lms = {
 
 app.get("/", (req: Request, res: Response) => {
   res.status(200).send({
-    message: "Hello World!!!!!",
+    message: "Hello World Testing!!!!!",
   });
 });
 
