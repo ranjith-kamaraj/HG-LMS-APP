@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "app-server/**" #Triggerig on changes to the app-server directory
 
 jobs:
   deploy:
