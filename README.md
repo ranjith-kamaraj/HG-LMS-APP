@@ -4,7 +4,10 @@ Hamara Group - Learning Management System - Application
 
 PORT:
 
-app-client: 4000
+FE:
+app-client: 5173
+Vite + React@19 + Typescript
+Vercel - For deployment
 
+BE:
 app-server: 5000
-
