@@ -1,9 +1,7 @@
 Client:
-.env -> PORT:4000
-
-npx create-react-app . -> React
-
-npx create-react-app . --template typescript -> React + Typescript
+pnpm create vite
+or
+pnpm create vite my-vue-app/. --template react
 
 rm -rf \*
 ls -la
@@ -13,5 +11,3 @@ npm init
 
 Git:
 git add . && git commit -m "Latest Code" && git push
-
-
