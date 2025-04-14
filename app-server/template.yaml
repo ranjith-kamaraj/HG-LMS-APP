@@ -53,3 +53,5 @@ Resources:
 
           # Start your application (adjust the command as needed)
           npm start
+      Metadata:
+        CodeVersion: !Ref CodeVersion
