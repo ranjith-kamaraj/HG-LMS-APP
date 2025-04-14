@@ -24,12 +24,10 @@ jobs:
 
       - name: Deploy CloudFormation stack
         run: |
-          CHANGE_SET_NAME="update-code-version-$(date +%s)"  # Use timestamp to ensure uniqueness
-          aws cloudformation create-change-set \
+          aws cloudformation deploy \
             --template-file app-server/template.yaml \
             --stack-name dev-lms-app-server \
-            --capabilities CAPABILITY_NAMED_IAM \
-            --parameter-overrides CodeVersion=$(date +%s)
+            --capabilities CAPABILITY_NAMED_IAM
 
       - name: Set environment variables
         run: echo "PORT=5000" >> $GITHUB_ENV # Specify your port number here
