@@ -25,6 +25,12 @@ app.get("/", (req: Request, res: Response) => {
   });
 });
 
+app.get("/hi", (req: Request, res: Response) => {
+  res.status(200).send({
+    message: "Hello World Testing!!!!!",
+  });
+});
+
 app.listen(process.env.PORT, () => {
   console.info(`Server started on port: ${process.env.PORT}`);
 });
