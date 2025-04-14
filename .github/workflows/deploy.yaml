@@ -24,7 +24,7 @@ jobs:
 
       - name: Deploy CloudFormation stack
         run: |
-          aws cloudformation deploy \
+          aws cloudformation create-change-set \
             --template-file app-server/template.yaml \
             --stack-name dev-lms-app-server \
             --capabilities CAPABILITY_NAMED_IAM \
