@@ -27,7 +27,7 @@ jobs:
           aws cloudformation deploy \
             --template-file app-server/template.yaml \
             --stack-name dev-lms-app-server \
-            --capabilities CAPABILITY_NAMED_IAM
+            --capabilities CAPABILITY_NAMED_IAM \
             --parameter-overrides CodeVersion=$(date +%s)
 
       - name: Set environment variables
