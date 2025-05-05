@@ -31,4 +31,4 @@ jobs:
             --capabilities CAPABILITY_NAMED_IAM
 
       - name: Set environment variables
-        run: echo "PORT=5000" >> $GITHUB_ENV # Specify your port number here
+        run: echo "PORT=80" >> $GITHUB_ENV # Specify your port number here
